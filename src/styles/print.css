@@ -1,0 +1,175 @@
+/* Print Stylesheet for A4 Landscape Clinical lists */
+
+@media print {
+  /* Setup landscape print and page margins */
+  @page {
+    size: A4 landscape;
+    margin: 0.8cm 0.6cm;
+  }
+
+  /* Reset body styling for crisp ink output */
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 8pt !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hide all interactive, web-only layout elements */
+  .main-header,
+  .dashboard-actions,
+  .tab-panel,
+  .quick-edit-banner,
+  .action-cluster,
+  .btn,
+  .btn-lang,
+  .profile-pill,
+  .search-box,
+  .filter-bar,
+  th:last-child,
+  td:last-child,
+  .modal-overlay,
+  .patient-info-sidebar {
+    display: none !important;
+  }
+
+  /* Adjust main container to occupy full width */
+  .app-container,
+  .main-content,
+  .board-card {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Print Header styling */
+  .print-only-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 8px;
+  }
+
+  .print-only-header h2 {
+    font-size: 14pt !important;
+    margin: 0 0 4px 0 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .print-only-header p {
+    font-size: 9pt !important;
+    color: #333333 !important;
+    margin: 0 !important;
+  }
+
+  /* Expand table and format borders */
+  .table-responsive {
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .operation-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 7.5pt !important;
+  }
+
+  /* Force table cells to have neat black borders and white backgrounds */
+  .operation-table th,
+  .operation-table td {
+    border: 1px solid #000000 !important;
+    padding: 5px 4px !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  .operation-table th {
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+
+  /* Ensure pediatric column displays clean text when not needed or done */
+  .consult-badge {
+    border: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    width: auto !important;
+    height: auto !important;
+    display: inline !important;
+  }
+
+  .consult-done::after {
+    content: " (Done)" !important;
+  }
+
+  .consult-notdone::after {
+    content: " (Not Done)" !important;
+  }
+
+  .consult-notneeded::after {
+    content: " (N/A)" !important;
+  }
+
+  [dir="rtl"] .consult-done::after {
+    content: " (تمت)" !important;
+  }
+
+  [dir="rtl"] .consult-notdone::after {
+    content: " (لم تتم)" !important;
+  }
+
+  [dir="rtl"] .consult-notneeded::after {
+    content: " (غير مطلوب)" !important;
+  }
+
+  .status-badge {
+    background: transparent !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 0 !important;
+    font-weight: bold !important;
+  }
+
+  /* Show handwritten empty rows for clinical morning additions */
+  .print-handwritten-rows {
+    display: table-row-group !important;
+  }
+
+  .print-handwritten-row td {
+    height: 30px !important; /* Proper spacing for handwritten additions */
+    border: 1px solid #000000 !important;
+    border-style: dotted !important;
+    background: transparent !important;
+  }
+  
+  .print-handwritten-row td:first-child {
+    border-style: solid !important;
+  }
+
+  .print-handwritten-title {
+    display: block !important;
+    margin-top: 15px;
+    font-size: 8.5pt !important;
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+/* Hide print elements on standard web layouts */
+.print-only-header,
+.print-handwritten-rows,
+.print-handwritten-title {
+  display: none;
+}
